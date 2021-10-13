@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QLQUAN_ANModelStoreContainer" CdmEntityContainer="QLQUAN_ANEntities">
+    <EntitySetMapping Name="accounts">
+      <EntityTypeMapping TypeName="QLQUAN_ANModel.account">
+        <MappingFragment StoreEntitySet="account">
+          <ScalarProperty Name="userNanme" ColumnName="userNanme" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="idnv" ColumnName="idnv" />
+          <ScalarProperty Name="isAdmin" ColumnName="isAdmin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BANANs">
+      <EntityTypeMapping TypeName="QLQUAN_ANModel.BANAN">
+        <MappingFragment StoreEntitySet="BANAN">
+          <ScalarProperty Name="soban" ColumnName="soban" />
+          <ScalarProperty Name="tenban" ColumnName="tenban" />
+          <ScalarProperty Name="tinhtrang" ColumnName="tinhtrang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BILLs">
+      <EntityTypeMapping TypeName="QLQUAN_ANModel.BILL">
+        <MappingFragment StoreEntitySet="BILL">
+          <ScalarProperty Name="idbill" ColumnName="idbill" />
+          <ScalarProperty Name="idnv" ColumnName="idnv" />
+          <ScalarProperty Name="idkh" ColumnName="idkh" />
+          <ScalarProperty Name="soban" ColumnName="soban" />
+          <ScalarProperty Name="checkin" ColumnName="checkin" />
+          <ScalarProperty Name="checkout" ColumnName="checkout" />
+          <ScalarProperty Name="tinhtrang" ColumnName="tinhtrang" />
+          <ScalarProperty Name="chietkhau" ColumnName="chietkhau" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CTBILLs">
+      <EntityTypeMapping TypeName="QLQUAN_ANModel.CTBILL">
+        <MappingFragment StoreEntitySet="CTBILL">
+          <ScalarProperty Name="idbill" ColumnName="idbill" />
+          <ScalarProperty Name="idfood" ColumnName="idfood" />
+          <ScalarProperty Name="slOrder" ColumnName="slOrder" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CTKMs">
+      <EntityTypeMapping TypeName="QLQUAN_ANModel.CTKM">
+        <MappingFragment StoreEntitySet="CTKM">
+          <ScalarProperty Name="idkm" ColumnName="idkm" />
+          <ScalarProperty Name="idfood" ColumnName="idfood" />
+          <ScalarProperty Name="chietkhau" ColumnName="chietkhau" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CTPHIEUNHAPs">
+      <EntityTypeMapping TypeName="QLQUAN_ANModel.CTPHIEUNHAP">
+        <MappingFragment StoreEntitySet="CTPHIEUNHAP">
+          <ScalarProperty Name="idpn" ColumnName="idpn" />
+          <ScalarProperty Name="idnl" ColumnName="idnl" />
+          <ScalarProperty Name="slnhap" ColumnName="slnhap" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FOODs">
+      <EntityTypeMapping TypeName="QLQUAN_ANModel.FOOD">
+        <MappingFragment StoreEntitySet="FOOD">
+          <ScalarProperty Name="idfood" ColumnName="idfood" />
+          <ScalarProperty Name="idloaifood" ColumnName="idloaifood" />
+          <ScalarProperty Name="tenfood" ColumnName="tenfood" />
+          <ScalarProperty Name="size" ColumnName="size" />
+          <ScalarProperty Name="gia" ColumnName="gia" />
+          <ScalarProperty Name="DVT" ColumnName="DVT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KHACHHANGs">
+      <EntityTypeMapping TypeName="QLQUAN_ANModel.KHACHHANG">
+        <MappingFragment StoreEntitySet="KHACHHANG">
+          <ScalarProperty Name="idkh" ColumnName="idkh" />
+          <ScalarProperty Name="tenkh" ColumnName="tenkh" />
+          <ScalarProperty Name="sdtkh" ColumnName="sdtkh" />
+          <ScalarProperty Name="diem" ColumnName="diem" />
+          <ScalarProperty Name="phai" ColumnName="phai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KHUYENMAIs">
+      <EntityTypeMapping TypeName="QLQUAN_ANModel.KHUYENMAI">
+        <MappingFragment StoreEntitySet="KHUYENMAI">
+          <ScalarProperty Name="idkm" ColumnName="idkm" />
+          <ScalarProperty Name="tenkm" ColumnName="tenkm" />
+          <ScalarProperty Name="ghichu" ColumnName="ghichu" />
+          <ScalarProperty Name="ngayBD" ColumnName="ngayBD" />
+          <ScalarProperty Name="ngayKT" ColumnName="ngayKT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOAIFOODs">
+      <EntityTypeMapping TypeName="QLQUAN_ANModel.LOAIFOOD">
+        <MappingFragment StoreEntitySet="LOAIFOOD">
+          <ScalarProperty Name="idloaifood" ColumnName="idloaifood" />
+          <ScalarProperty Name="tenloaifood" ColumnName="tenloaifood" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOAINLs">
+      <EntityTypeMapping TypeName="QLQUAN_ANModel.LOAINL">
+        <MappingFragment StoreEntitySet="LOAINL">
+          <ScalarProperty Name="idloainl" ColumnName="idloainl" />
+          <ScalarProperty Name="tenloainl" ColumnName="tenloainl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NGUYENLIEUx">
+      <EntityTypeMapping TypeName="QLQUAN_ANModel.NGUYENLIEU">
+        <MappingFragment StoreEntitySet="NGUYENLIEU">
+          <ScalarProperty Name="idnl" ColumnName="idnl" />
+          <ScalarProperty Name="idloainl" ColumnName="idloainl" />
+          <ScalarProperty Name="idnhacc" ColumnName="idnhacc" />
+          <ScalarProperty Name="ten" ColumnName="ten" />
+          <ScalarProperty Name="DVT" ColumnName="DVT" />
+          <ScalarProperty Name="gia" ColumnName="gia" />
+          <ScalarProperty Name="slton" ColumnName="slton" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NHACUNGCAPs">
+      <EntityTypeMapping TypeName="QLQUAN_ANModel.NHACUNGCAP">
+        <MappingFragment StoreEntitySet="NHACUNGCAP">
+          <ScalarProperty Name="idnhacc" ColumnName="idnhacc" />
+          <ScalarProperty Name="tennhacung" ColumnName="tennhacung" />
+          <ScalarProperty Name="sdtncc" ColumnName="sdtncc" />
+          <ScalarProperty Name="mailncc" ColumnName="mailncc" />
+          <ScalarProperty Name="dcncc" ColumnName="dcncc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NHANVIENs">
+      <EntityTypeMapping TypeName="QLQUAN_ANModel.NHANVIEN">
+        <MappingFragment StoreEntitySet="NHANVIEN">
+          <ScalarProperty Name="idnv" ColumnName="idnv" />
+          <ScalarProperty Name="tennv" ColumnName="tennv" />
+          <ScalarProperty Name="sdtnv" ColumnName="sdtnv" />
+          <ScalarProperty Name="mail" ColumnName="mail" />
+          <ScalarProperty Name="dcnv" ColumnName="dcnv" />
+          <ScalarProperty Name="gioitinh" ColumnName="gioitinh" />
+          <ScalarProperty Name="ngaysinh" ColumnName="ngaysinh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PHIEUNHAPs">
+      <EntityTypeMapping TypeName="QLQUAN_ANModel.PHIEUNHAP">
+        <MappingFragment StoreEntitySet="PHIEUNHAP">
+          <ScalarProperty Name="idpn" ColumnName="idpn" />
+          <ScalarProperty Name="idnv" ColumnName="idnv" />
+          <ScalarProperty Name="ngaynhap" ColumnName="ngaynhap" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="QLQUAN_ANModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="getCtBillId" FunctionName="QLQUAN_ANModel.Store.getCtBillId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QLQUAN_ANModel.getCtBillId_Result">
+          <ScalarProperty Name="idbill" ColumnName="idbill" />
+          <ScalarProperty Name="idfood" ColumnName="idfood" />
+          <ScalarProperty Name="tenfood" ColumnName="tenfood" />
+          <ScalarProperty Name="slOrder" ColumnName="slOrder" />
+          <ScalarProperty Name="chietkhau" ColumnName="chietkhau" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="getIsAdmin" FunctionName="QLQUAN_ANModel.Store.getIsAdmin">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QLQUAN_ANModel.getIsAdmin_Result">
+          <ScalarProperty Name="isAdmin" ColumnName="isAdmin" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="getNVCreateAcc" FunctionName="QLQUAN_ANModel.Store.getNVCreateAcc">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QLQUAN_ANModel.getNVCreateAcc_Result">
+          <ScalarProperty Name="idnv" ColumnName="idnv" />
+          <ScalarProperty Name="tennv" ColumnName="tennv" />
+          <ScalarProperty Name="sdtnv" ColumnName="sdtnv" />
+          <ScalarProperty Name="mail" ColumnName="mail" />
+          <ScalarProperty Name="dcnv" ColumnName="dcnv" />
+          <ScalarProperty Name="gioitinh" ColumnName="gioitinh" />
+          <ScalarProperty Name="ngaysinh" ColumnName="ngaysinh" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="loadCTBill" FunctionName="QLQUAN_ANModel.Store.loadCTBill">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QLQUAN_ANModel.loadCTBill_Result">
+          <ScalarProperty Name="idbill" ColumnName="idbill" />
+          <ScalarProperty Name="idfood" ColumnName="idfood" />
+          <ScalarProperty Name="tenfood" ColumnName="tenfood" />
+          <ScalarProperty Name="size" ColumnName="size" />
+          <ScalarProperty Name="gia" ColumnName="gia" />
+          <ScalarProperty Name="soban" ColumnName="soban" />
+          <ScalarProperty Name="slOrder" ColumnName="slOrder" />
+          <ScalarProperty Name="chietkhau" ColumnName="chietkhau" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="loaddvt" FunctionName="QLQUAN_ANModel.Store.loaddvt">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QLQUAN_ANModel.loaddvt_Result">
+          <ScalarProperty Name="DVT" ColumnName="DVT" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="loadDvtfood" FunctionName="QLQUAN_ANModel.Store.loadDvtfood">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QLQUAN_ANModel.loadDvtfood_Result">
+          <ScalarProperty Name="DVT" ColumnName="DVT" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="loadMonAn" FunctionName="QLQUAN_ANModel.Store.loadMonAn">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QLQUAN_ANModel.loadMonAn_Result">
+          <ScalarProperty Name="idfood" ColumnName="idfood" />
+          <ScalarProperty Name="tenfood" ColumnName="tenfood" />
+          <ScalarProperty Name="size" ColumnName="size" />
+          <ScalarProperty Name="gia" ColumnName="gia" />
+          <ScalarProperty Name="chietkhau" ColumnName="chietkhau" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="loadMonAnid" FunctionName="QLQUAN_ANModel.Store.loadMonAnid">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QLQUAN_ANModel.loadMonAnid_Result">
+          <ScalarProperty Name="idfood" ColumnName="idfood" />
+          <ScalarProperty Name="tenfood" ColumnName="tenfood" />
+          <ScalarProperty Name="size" ColumnName="size" />
+          <ScalarProperty Name="gia" ColumnName="gia" />
+          <ScalarProperty Name="chietkhau" ColumnName="chietkhau" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="loadSizi" FunctionName="QLQUAN_ANModel.Store.loadSizi">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QLQUAN_ANModel.loadSizi_Result">
+          <ScalarProperty Name="size" ColumnName="size" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="pr_getIdBill" FunctionName="QLQUAN_ANModel.Store.pr_getIdBill">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QLQUAN_ANModel.pr_getIdBill_Result">
+          <ScalarProperty Name="Column1" ColumnName="Column1" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="RPTTInhTIen" FunctionName="QLQUAN_ANModel.Store.RPTTInhTIen">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QLQUAN_ANModel.RPTTInhTIen_Result">
+          <ScalarProperty Name="idbill" ColumnName="idbill" />
+          <ScalarProperty Name="idfood" ColumnName="idfood" />
+          <ScalarProperty Name="tennv" ColumnName="tennv" />
+          <ScalarProperty Name="soban" ColumnName="soban" />
+          <ScalarProperty Name="checkin" ColumnName="checkin" />
+          <ScalarProperty Name="checkout" ColumnName="checkout" />
+          <ScalarProperty Name="tenfood" ColumnName="tenfood" />
+          <ScalarProperty Name="size" ColumnName="size" />
+          <ScalarProperty Name="slOrder" ColumnName="slOrder" />
+          <ScalarProperty Name="chietkhau" ColumnName="chietkhau" />
+          <ScalarProperty Name="gia" ColumnName="gia" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="tienkhachTra" ColumnName="tienkhachTra" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,275 @@
+﻿<UserControl x:Class="WpfQuanAn.view.BanHangUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfQuanAn.view"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="1000"
+             
+             DataContext="{StaticResource banHangVM}"
+              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="15"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     Background="{DynamicResource MaterialDesignPaper}"
+     FontFamily="{DynamicResource MaterialDesignFont}"
+             x:Name="banHangUC">
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedCommand}" 
+                                   CommandParameter="{Binding ElementName=banHangUC}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="GridBHdParent" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <materialDesign:ColorZone Grid.Row="0" Mode="Light">
+            <WrapPanel>
+                <Button Background="{x:Null}" BorderBrush="{x:Null}" Click="BackHome_Click" Command="{Binding backHomeCommand}"  Width="50" Margin=" 50 10 0 0">
+                    <Image Source="../Assets/logo.png" Height="25" Width="40" />
+                </Button>
+                <Label Content="ĂN VẶT BEN BEN" Margin=" 50 10 0 0" FontWeight="Bold" Foreground="Blue"/>
+                <TextBlock Text="{Binding tenban, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="30 10 0 0"></TextBlock>
+            </WrapPanel>
+        </materialDesign:ColorZone>
+
+        <Grid Grid.Row="1" Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition Width="350"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            
+            <Grid Grid.Column="0" HorizontalAlignment="Left" Margin="50 0 0 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <ComboBox  Grid.Row="0" Margin="5,5,5,5" HorizontalContentAlignment="Center" ItemsSource="{Binding listLoaiFood}" SelectedItem="{Binding SelectedItemLoaiFood,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  DisplayMemberPath="tenloaifood" FontSize="15" FontWeight="Bold" FontFamily="Segoe UI" materialDesign:HintAssist.Hint="Danh mục thực đơn"></ComboBox>
+
+                <DataGrid Margin="5,5,5,5" Grid.Row="1" IsReadOnly="True" ItemsSource="{Binding ListFood, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedItemMonAn, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="False" VerticalAlignment="Bottom">
+                    <DataGrid.Resources>
+                        <Style TargetType="{x:Type DataGridCell}">
+                            <Style.Triggers>
+                                <Trigger Property="DataGridCell.IsSelected" Value="True">
+                                    <Setter Property="Background" Value="#FF5273F3" />
+                                    <Setter Property="FontWeight" Value="Bold"></Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGrid.Resources>
+                    <DataGrid.Columns>
+                        <!--ten mon-->
+                        <DataGridTemplateColumn Width="auto" Header="Tên Món">
+                            <DataGridTemplateColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                                    <Setter Property="FontFamily" Value="Segoe UI"></Setter>
+                                    <Setter Property="FontSize" Value="15"></Setter>
+                                    <Setter Property="FontWeight" Value="Bold"></Setter>
+                                    <Setter Property="Foreground" Value="Blue"></Setter>
+                                </Style>
+                            </DataGridTemplateColumn.HeaderStyle>
+
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label Content="{Binding tenfood}" HorizontalContentAlignment="Center"></Label>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <!--size-->
+                        <DataGridTemplateColumn Width="100" Header="Size">
+                            <DataGridTemplateColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                                    <Setter Property="FontFamily" Value="Segoe UI"></Setter>
+                                    <Setter Property="FontSize" Value="15"></Setter>
+                                    <Setter Property="FontWeight" Value="Bold"></Setter>
+                                    <Setter Property="Foreground" Value="Blue"></Setter>
+                                </Style>
+                            </DataGridTemplateColumn.HeaderStyle>
+
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label Content="{Binding size}" HorizontalContentAlignment="Center"></Label>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <!--don gia-->
+                        <DataGridTemplateColumn Width="100" Header="Đơn giá">
+                            <DataGridTemplateColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                                    <Setter Property="FontFamily" Value="Segoe UI"></Setter>
+                                    <Setter Property="FontSize" Value="15"></Setter>
+                                    <Setter Property="FontWeight" Value="Bold"></Setter>
+                                    <Setter Property="Foreground" Value="Blue"></Setter>
+                                </Style>
+                            </DataGridTemplateColumn.HeaderStyle>
+
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label Content="{Binding gia}" HorizontalContentAlignment="Center"></Label>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <!--giam gia-->
+                        <DataGridTemplateColumn Width="100" Header="Khuyến mãi">
+                            <DataGridTemplateColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                                    <Setter Property="FontFamily" Value="Segoe UI"></Setter>
+                                    <Setter Property="FontSize" Value="15"></Setter>
+                                    <Setter Property="FontWeight" Value="Bold"></Setter>
+                                    <Setter Property="Foreground" Value="Blue"></Setter>
+                                </Style>
+                            </DataGridTemplateColumn.HeaderStyle>
+
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label Content="{Binding KHUYENMAI.chietKhau,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:#.##}}" HorizontalContentAlignment="Center"></Label>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+            <Grid Grid.Column="1" HorizontalAlignment="Right" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0"  HorizontalContentAlignment="Center" Content="{Binding lbTieuDe, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontWeight="Bold"></Label>
+                <DataGrid  Grid.Row="1" IsReadOnly="True" Margin="30 0 0 0" ItemsSource="{Binding listCtbill, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedItemCTBill, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="False">
+                    <DataGrid.Resources>
+                        <Style TargetType="{x:Type DataGridCell}">
+                            <Style.Triggers>
+                                <Trigger Property="DataGridCell.IsSelected" Value="True">
+                                    <Setter Property="Background" Value="#FF5273F3" />
+                                    <Setter Property="FontWeight" Value="Bold"></Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGrid.Resources>
+                    <DataGrid.Columns>
+                        <!--ten mon-->
+                        <DataGridTemplateColumn Width="auto" Header="Tên Món">
+                            <DataGridTemplateColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                                    <Setter Property="FontFamily" Value="Segoe UI"></Setter>
+                                    <Setter Property="FontSize" Value="15"></Setter>
+                                    <Setter Property="FontWeight" Value="Bold"></Setter>
+                                    <Setter Property="Foreground" Value="Blue"></Setter>
+                                </Style>
+                            </DataGridTemplateColumn.HeaderStyle>
+
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label Content="{Binding FOOD.tenfood}" HorizontalContentAlignment="Center"></Label>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <!--size-->
+                        <DataGridTemplateColumn Width="100" Header="Size">
+                            <DataGridTemplateColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                                    <Setter Property="FontFamily" Value="Segoe UI"></Setter>
+                                    <Setter Property="FontSize" Value="15"></Setter>
+                                    <Setter Property="FontWeight" Value="Bold"></Setter>
+                                    <Setter Property="Foreground" Value="Blue"></Setter>
+                                </Style>
+                            </DataGridTemplateColumn.HeaderStyle>
+
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label Content="{Binding FOOD.size}" HorizontalContentAlignment="Center"></Label>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <!--don gia-->
+                        <DataGridTemplateColumn Width="100" Header="Đơn giá">
+                            <DataGridTemplateColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                                    <Setter Property="FontFamily" Value="Segoe UI"></Setter>
+                                    <Setter Property="FontSize" Value="15"></Setter>
+                                    <Setter Property="FontWeight" Value="Bold"></Setter>
+                                    <Setter Property="Foreground" Value="Blue"></Setter>
+                                </Style>
+                            </DataGridTemplateColumn.HeaderStyle>
+
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label Content="{Binding FOOD.gia}" HorizontalContentAlignment="Center"></Label>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <!--so luong order-->
+                        <DataGridTemplateColumn Width="100" Header="Số Lượng" IsReadOnly="False">
+                            <DataGridTemplateColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                                    <Setter Property="FontFamily" Value="Segoe UI"></Setter>
+                                    <Setter Property="FontSize" Value="15"></Setter>
+                                    <Setter Property="FontWeight" Value="Bold"></Setter>
+                                    <Setter Property="Foreground" Value="Blue"></Setter>
+                                </Style>
+                            </DataGridTemplateColumn.HeaderStyle>
+                            <DataGridTemplateColumn.CellTemplate >
+                                <DataTemplate>
+                                    <Label Content="{Binding slOrder, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" HorizontalContentAlignment="Center"></Label>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+            <Grid Grid.Column="2" HorizontalAlignment="Left">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <WrapPanel>
+                        <ComboBox  Grid.Row="0" Margin="5,5,5,5" Width="250" HorizontalContentAlignment="Center" ItemsSource="{Binding ListKH}" SelectedItem="{Binding SelectedItemKH,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  DisplayMemberPath="tenkh" FontSize="15" FontWeight="Bold" FontFamily="Segoe UI" materialDesign:HintAssist.Hint="Danh mục khách hàng"></ComboBox>
+                        <TextBox HorizontalContentAlignment="Center" Width="250" Text="{Binding slOrder, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  Margin="5" materialDesign:HintAssist.Hint="Số Lượng Order" Style="{StaticResource MaterialDesignFloatingHintTextBox}">
+                           
+                        </TextBox>
+
+                    </WrapPanel>
+                </Grid>
+                <WrapPanel Grid.Row="1" Grid.Column="3">
+                    <Button Command="{Binding XoaMonCommand}" Margin="5,5,5,5" materialDesign:ShadowAssist.ShadowDepth="Depth5" FontFamily="Segoe UI" FontSize="15" FontWeight="Bold" Background="#0074cf"  Foreground="Red" Content="Xóa món" ></Button>
+                    <Button Command="{Binding EditMonCommand}" Content="Sửa" Margin="5" Width="100" Background="#0074cf" FontWeight="Bold"></Button>
+                </WrapPanel>
+                <WrapPanel Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left" Orientation="Horizontal" Margin="10">
+                    <Button Command="{Binding ChuyenBanCommand}"  Margin="5,5,5,5" materialDesign:ShadowAssist.ShadowDepth="Depth5" FontFamily="Segoe UI" FontSize="15" FontWeight="Bold" Background="#0074cf"  Foreground="White" Content="Chuyển bàn" ></Button>
+                    <Button Command="{Binding GopBanCommand}"  Margin="5,5,5,5" materialDesign:ShadowAssist.ShadowDepth="Depth5" FontFamily="Segoe UI" FontSize="15" FontWeight="Bold" Background="#0074cf"  Foreground="White" Content="Gộp bàn" ></Button>
+                    <Button x:Name="btThanhToan" Command="{Binding ThanhToanCommand}"  Margin="5,5,5,5" materialDesign:ShadowAssist.ShadowDepth="Depth5" FontFamily="Segoe UI" FontSize="15" FontWeight="Bold" Background="#0074cf"  Foreground="White" Content="Thanh toán"></Button>
+                </WrapPanel>
+                
+                <StackPanel Grid.Row="3" VerticalAlignment="Bottom" Margin="10">
+                    <Label HorizontalContentAlignment="Left"  Content="{Binding TongTien,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" FontFamily="Segoe UI" FontSize="15" FontWeight="Bold" Foreground="Red"></Label>
+                    <TextBlock Text="{Binding tongChietKhau, UpdateSourceTrigger=PropertyChanged}" FontFamily="Segoe UI" FontSize="15" FontWeight="Bold" Foreground="Red"></TextBlock>
+
+                </StackPanel>
+            </Grid>
+        </Grid>
+        
+    </Grid>
+</UserControl>

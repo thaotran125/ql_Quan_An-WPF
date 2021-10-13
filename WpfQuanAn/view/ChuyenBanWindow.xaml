@@ -1,0 +1,40 @@
+﻿<Window x:Class="WpfQuanAn.view.ChuyenBanWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfQuanAn.view"
+        mc:Ignorable="d"
+        x:Name="ChuyenBanWD"
+        
+        WindowStyle="None"
+        DataContext="{StaticResource banHangVM}"
+        Title="ChuyenBanWindow" Height="300" Width="600"
+         ResizeMode="NoResize"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     Background="{DynamicResource MaterialDesignPaper}"
+     FontFamily="{DynamicResource MaterialDesignFont}">
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0">
+            <Label Margin="5,10,5,10" HorizontalContentAlignment="Center" FontFamily="Segoe UI" FontSize="15" FontWeight="Bold" Foreground="Blue" Content="Chọn bàn cần chuyển"></Label>
+            <ComboBox Margin="5,10,5,10" HorizontalContentAlignment="Center" ItemsSource="{Binding listBanCoNguoi,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding selectedbanChuyen,Mode=OneWayToSource}" DisplayMemberPath="tenban" Grid.Row="1" materialDesign:HintAssist.Hint="Chọn bàn"></ComboBox>
+            <Button  Command="{Binding ComfirmChuyenBanCommand}" CommandParameter="{Binding ElementName=ChuyenBanWD}"  FontFamily="Segoe UI" FontSize="15" FontWeight="Bold" Background="#0074cf"  Foreground="White" Content="Chuyển" Style="{StaticResource MaterialDesignRaisedAccentButton}" Margin="5,5,5,5" Grid.Column="0"></Button>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1">
+            <Label Margin="5,10,5,10" HorizontalContentAlignment="Center" FontFamily="Segoe UI" FontSize="15" FontWeight="Bold" Foreground="Blue" Content="Chọn bàn trống"></Label>
+            <ComboBox Margin="5,10,5,10" HorizontalContentAlignment="Center" ItemsSource="{Binding listBanTrong,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding selectedbanSeChuyen,Mode=OneWayToSource}" DisplayMemberPath="tenban" Grid.Row="1" materialDesign:HintAssist.Hint="Chọn bàn"></ComboBox>
+            <Button  Command="{Binding ICommandCancel}" CommandParameter="{Binding ElementName=ChuyenBanWD}" FontFamily="Segoe UI" FontSize="15" FontWeight="Bold"   Foreground="Black" Content="Cancel" Style="{StaticResource MaterialDesignRaisedAccentButton}" Margin="5,5,5,5" Grid.Column="0"></Button>
+        </StackPanel>
+    </Grid>
+</Window>

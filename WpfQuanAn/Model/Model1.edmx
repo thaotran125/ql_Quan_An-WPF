@@ -1,0 +1,1166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="QLQUAN_ANModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="account">
+          <Key>
+            <PropertyRef Name="userNanme" />
+          </Key>
+          <Property Name="userNanme" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="idnv" Type="int" />
+          <Property Name="isAdmin" Type="int" />
+          <Property Name="password" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="BANAN">
+          <Key>
+            <PropertyRef Name="soban" />
+          </Key>
+          <Property Name="soban" Type="int" Nullable="false" />
+          <Property Name="tenban" Type="nvarchar" MaxLength="50" />
+          <Property Name="tinhtrang" Type="int" />
+        </EntityType>
+        <EntityType Name="BILL">
+          <Key>
+            <PropertyRef Name="idbill" />
+          </Key>
+          <Property Name="idbill" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idnv" Type="int" Nullable="false" />
+          <Property Name="idkh" Type="int" Nullable="false" />
+          <Property Name="soban" Type="int" />
+          <Property Name="checkin" Type="datetime" />
+          <Property Name="checkout" Type="datetime" />
+          <Property Name="tinhtrang" Type="int" />
+          <Property Name="chietkhau" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="CTBILL">
+          <Key>
+            <PropertyRef Name="idbill" />
+            <PropertyRef Name="idfood" />
+          </Key>
+          <Property Name="idbill" Type="int" Nullable="false" />
+          <Property Name="idfood" Type="int" Nullable="false" />
+          <Property Name="slOrder" Type="int" />
+        </EntityType>
+        <EntityType Name="CTPHIEUNHAP">
+          <Key>
+            <PropertyRef Name="idpn" />
+            <PropertyRef Name="idnl" />
+          </Key>
+          <Property Name="idpn" Type="int" Nullable="false" />
+          <Property Name="idnl" Type="int" Nullable="false" />
+          <Property Name="slnhap" Type="int" />
+        </EntityType>
+        <EntityType Name="FOOD">
+          <Key>
+            <PropertyRef Name="idfood" />
+          </Key>
+          <Property Name="idfood" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idloaifood" Type="int" Nullable="false" />
+          <Property Name="tenfood" Type="nvarchar" MaxLength="100" />
+          <Property Name="size" Type="varchar" MaxLength="5" />
+          <Property Name="gia" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="DVT" Type="nvarchar" MaxLength="100" />
+          <Property Name="idkm" Type="int" />
+        </EntityType>
+        <EntityType Name="KHACHHANG">
+          <Key>
+            <PropertyRef Name="idkh" />
+          </Key>
+          <Property Name="idkh" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tenkh" Type="nvarchar" MaxLength="100" />
+          <Property Name="sdtkh" Type="varchar" MaxLength="11" />
+          <Property Name="diem" Type="int" />
+          <Property Name="phai" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="KHUYENMAI">
+          <Key>
+            <PropertyRef Name="idkm" />
+          </Key>
+          <Property Name="idkm" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tenkm" Type="nvarchar" MaxLength="100" />
+          <Property Name="ghichu" Type="nvarchar" MaxLength="100" />
+          <Property Name="ngayBD" Type="datetime" />
+          <Property Name="ngayKT" Type="datetime" />
+          <Property Name="chietKhau" Type="float" />
+        </EntityType>
+        <EntityType Name="LOAIFOOD">
+          <Key>
+            <PropertyRef Name="idloaifood" />
+          </Key>
+          <Property Name="idloaifood" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tenloaifood" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="LOAINL">
+          <Key>
+            <PropertyRef Name="idloainl" />
+          </Key>
+          <Property Name="idloainl" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tenloainl" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="NGUYENLIEU">
+          <Key>
+            <PropertyRef Name="idnl" />
+          </Key>
+          <Property Name="idnl" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idloainl" Type="int" Nullable="false" />
+          <Property Name="idnhacc" Type="int" Nullable="false" />
+          <Property Name="ten" Type="nvarchar" MaxLength="100" />
+          <Property Name="DVT" Type="nvarchar" MaxLength="100" />
+          <Property Name="gia" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="slton" Type="int" />
+        </EntityType>
+        <EntityType Name="NHACUNGCAP">
+          <Key>
+            <PropertyRef Name="idnhacc" />
+          </Key>
+          <Property Name="idnhacc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tennhacung" Type="nvarchar" MaxLength="100" />
+          <Property Name="sdtncc" Type="varchar" MaxLength="11" />
+          <Property Name="mailncc" Type="varchar" MaxLength="100" />
+          <Property Name="dcncc" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="NHANVIEN">
+          <Key>
+            <PropertyRef Name="idnv" />
+          </Key>
+          <Property Name="idnv" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tennv" Type="nvarchar" MaxLength="100" />
+          <Property Name="sdtnv" Type="varchar" MaxLength="11" />
+          <Property Name="mail" Type="varchar" MaxLength="100" />
+          <Property Name="dcnv" Type="nvarchar" MaxLength="100" />
+          <Property Name="gioitinh" Type="nvarchar" MaxLength="20" />
+          <Property Name="ngaysinh" Type="datetime" />
+          <Property Name="Status" Type="int" />
+        </EntityType>
+        <EntityType Name="PHIEUNHAP">
+          <Key>
+            <PropertyRef Name="idpn" />
+          </Key>
+          <Property Name="idpn" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idnv" Type="int" Nullable="false" />
+          <Property Name="ngaynhap" Type="datetime" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="fk_acc">
+          <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="0..1" />
+          <End Role="account" Type="Self.account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHANVIEN">
+              <PropertyRef Name="idnv" />
+            </Principal>
+            <Dependent Role="account">
+              <PropertyRef Name="idnv" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_banbill">
+          <End Role="BANAN" Type="Self.BANAN" Multiplicity="0..1" />
+          <End Role="BILL" Type="Self.BILL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BANAN">
+              <PropertyRef Name="soban" />
+            </Principal>
+            <Dependent Role="BILL">
+              <PropertyRef Name="soban" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ctbill">
+          <End Role="BILL" Type="Self.BILL" Multiplicity="1" />
+          <End Role="CTBILL" Type="Self.CTBILL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BILL">
+              <PropertyRef Name="idbill" />
+            </Principal>
+            <Dependent Role="CTBILL">
+              <PropertyRef Name="idbill" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ctfood">
+          <End Role="FOOD" Type="Self.FOOD" Multiplicity="1" />
+          <End Role="CTBILL" Type="Self.CTBILL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FOOD">
+              <PropertyRef Name="idfood" />
+            </Principal>
+            <Dependent Role="CTBILL">
+              <PropertyRef Name="idfood" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_food_km">
+          <End Role="KHUYENMAI" Type="Self.KHUYENMAI" Multiplicity="0..1" />
+          <End Role="FOOD" Type="Self.FOOD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHUYENMAI">
+              <PropertyRef Name="idkm" />
+            </Principal>
+            <Dependent Role="FOOD">
+              <PropertyRef Name="idkm" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_khbill">
+          <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="1" />
+          <End Role="BILL" Type="Self.BILL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHACHHANG">
+              <PropertyRef Name="idkh" />
+            </Principal>
+            <Dependent Role="BILL">
+              <PropertyRef Name="idkh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_lf">
+          <End Role="LOAIFOOD" Type="Self.LOAIFOOD" Multiplicity="1" />
+          <End Role="FOOD" Type="Self.FOOD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOAIFOOD">
+              <PropertyRef Name="idloaifood" />
+            </Principal>
+            <Dependent Role="FOOD">
+              <PropertyRef Name="idloaifood" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_lnl">
+          <End Role="LOAINL" Type="Self.LOAINL" Multiplicity="1" />
+          <End Role="NGUYENLIEU" Type="Self.NGUYENLIEU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOAINL">
+              <PropertyRef Name="idloainl" />
+            </Principal>
+            <Dependent Role="NGUYENLIEU">
+              <PropertyRef Name="idloainl" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ncc">
+          <End Role="NHACUNGCAP" Type="Self.NHACUNGCAP" Multiplicity="1" />
+          <End Role="NGUYENLIEU" Type="Self.NGUYENLIEU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHACUNGCAP">
+              <PropertyRef Name="idnhacc" />
+            </Principal>
+            <Dependent Role="NGUYENLIEU">
+              <PropertyRef Name="idnhacc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_nl">
+          <End Role="NGUYENLIEU" Type="Self.NGUYENLIEU" Multiplicity="1" />
+          <End Role="CTPHIEUNHAP" Type="Self.CTPHIEUNHAP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NGUYENLIEU">
+              <PropertyRef Name="idnl" />
+            </Principal>
+            <Dependent Role="CTPHIEUNHAP">
+              <PropertyRef Name="idnl" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_nv">
+          <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
+          <End Role="PHIEUNHAP" Type="Self.PHIEUNHAP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHANVIEN">
+              <PropertyRef Name="idnv" />
+            </Principal>
+            <Dependent Role="PHIEUNHAP">
+              <PropertyRef Name="idnv" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_nvbill">
+          <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
+          <End Role="BILL" Type="Self.BILL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHANVIEN">
+              <PropertyRef Name="idnv" />
+            </Principal>
+            <Dependent Role="BILL">
+              <PropertyRef Name="idnv" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_pn">
+          <End Role="PHIEUNHAP" Type="Self.PHIEUNHAP" Multiplicity="1" />
+          <End Role="CTPHIEUNHAP" Type="Self.CTPHIEUNHAP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PHIEUNHAP">
+              <PropertyRef Name="idpn" />
+            </Principal>
+            <Dependent Role="CTPHIEUNHAP">
+              <PropertyRef Name="idpn" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="getNVCreateAcc" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="loaddvt" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="loadDvtfood" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="loadSizi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="prDoanhThu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="thang" Type="int" Mode="In" />
+        </Function>
+        <Function Name="prDoanhThuThang" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="thang" Type="int" Mode="In" />
+        </Function>
+        <Function Name="RP_doanhThuNgay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="RP_sanPham_banChay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="RP_soLuong_loai" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="RP_soLuong_sanPham" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="RPTinhTien" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idbill" Type="int" Mode="In" />
+          <Parameter Name="tien" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="QLQUAN_ANModelStoreContainer">
+          <EntitySet Name="account" EntityType="Self.account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BANAN" EntityType="Self.BANAN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BILL" EntityType="Self.BILL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CTBILL" EntityType="Self.CTBILL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CTPHIEUNHAP" EntityType="Self.CTPHIEUNHAP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FOOD" EntityType="Self.FOOD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KHACHHANG" EntityType="Self.KHACHHANG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KHUYENMAI" EntityType="Self.KHUYENMAI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LOAIFOOD" EntityType="Self.LOAIFOOD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LOAINL" EntityType="Self.LOAINL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NGUYENLIEU" EntityType="Self.NGUYENLIEU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NHACUNGCAP" EntityType="Self.NHACUNGCAP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NHANVIEN" EntityType="Self.NHANVIEN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PHIEUNHAP" EntityType="Self.PHIEUNHAP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_acc" Association="Self.fk_acc">
+            <End Role="NHANVIEN" EntitySet="NHANVIEN" />
+            <End Role="account" EntitySet="account" />
+          </AssociationSet>
+          <AssociationSet Name="fk_banbill" Association="Self.fk_banbill">
+            <End Role="BANAN" EntitySet="BANAN" />
+            <End Role="BILL" EntitySet="BILL" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ctbill" Association="Self.fk_ctbill">
+            <End Role="BILL" EntitySet="BILL" />
+            <End Role="CTBILL" EntitySet="CTBILL" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ctfood" Association="Self.fk_ctfood">
+            <End Role="FOOD" EntitySet="FOOD" />
+            <End Role="CTBILL" EntitySet="CTBILL" />
+          </AssociationSet>
+          <AssociationSet Name="fk_food_km" Association="Self.fk_food_km">
+            <End Role="KHUYENMAI" EntitySet="KHUYENMAI" />
+            <End Role="FOOD" EntitySet="FOOD" />
+          </AssociationSet>
+          <AssociationSet Name="fk_khbill" Association="Self.fk_khbill">
+            <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+            <End Role="BILL" EntitySet="BILL" />
+          </AssociationSet>
+          <AssociationSet Name="fk_lf" Association="Self.fk_lf">
+            <End Role="LOAIFOOD" EntitySet="LOAIFOOD" />
+            <End Role="FOOD" EntitySet="FOOD" />
+          </AssociationSet>
+          <AssociationSet Name="fk_lnl" Association="Self.fk_lnl">
+            <End Role="LOAINL" EntitySet="LOAINL" />
+            <End Role="NGUYENLIEU" EntitySet="NGUYENLIEU" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ncc" Association="Self.fk_ncc">
+            <End Role="NHACUNGCAP" EntitySet="NHACUNGCAP" />
+            <End Role="NGUYENLIEU" EntitySet="NGUYENLIEU" />
+          </AssociationSet>
+          <AssociationSet Name="fk_nl" Association="Self.fk_nl">
+            <End Role="NGUYENLIEU" EntitySet="NGUYENLIEU" />
+            <End Role="CTPHIEUNHAP" EntitySet="CTPHIEUNHAP" />
+          </AssociationSet>
+          <AssociationSet Name="fk_nv" Association="Self.fk_nv">
+            <End Role="NHANVIEN" EntitySet="NHANVIEN" />
+            <End Role="PHIEUNHAP" EntitySet="PHIEUNHAP" />
+          </AssociationSet>
+          <AssociationSet Name="fk_nvbill" Association="Self.fk_nvbill">
+            <End Role="NHANVIEN" EntitySet="NHANVIEN" />
+            <End Role="BILL" EntitySet="BILL" />
+          </AssociationSet>
+          <AssociationSet Name="fk_pn" Association="Self.fk_pn">
+            <End Role="PHIEUNHAP" EntitySet="PHIEUNHAP" />
+            <End Role="CTPHIEUNHAP" EntitySet="CTPHIEUNHAP" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="QLQUAN_ANModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="account">
+          <Key>
+            <PropertyRef Name="userNanme" />
+          </Key>
+          <Property Name="userNanme" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idnv" Type="Int32" />
+          <Property Name="isAdmin" Type="Int32" />
+          <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="NHANVIEN" Relationship="Self.fk_acc" FromRole="account" ToRole="NHANVIEN" />
+        </EntityType>
+        <EntityType Name="BANAN">
+          <Key>
+            <PropertyRef Name="soban" />
+          </Key>
+          <Property Name="soban" Type="Int32" Nullable="false" />
+          <Property Name="tenban" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="tinhtrang" Type="Int32" />
+          <NavigationProperty Name="BILLs" Relationship="Self.fk_banbill" FromRole="BANAN" ToRole="BILL" />
+        </EntityType>
+        <EntityType Name="BILL">
+          <Key>
+            <PropertyRef Name="idbill" />
+          </Key>
+          <Property Name="idbill" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idnv" Type="Int32" Nullable="false" />
+          <Property Name="idkh" Type="Int32" Nullable="false" />
+          <Property Name="soban" Type="Int32" />
+          <Property Name="checkin" Type="DateTime" Precision="3" />
+          <Property Name="checkout" Type="DateTime" Precision="3" />
+          <Property Name="tinhtrang" Type="Int32" />
+          <Property Name="chietkhau" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="BANAN" Relationship="Self.fk_banbill" FromRole="BILL" ToRole="BANAN" />
+          <NavigationProperty Name="CTBILLs" Relationship="Self.fk_ctbill" FromRole="BILL" ToRole="CTBILL" />
+          <NavigationProperty Name="KHACHHANG" Relationship="Self.fk_khbill" FromRole="BILL" ToRole="KHACHHANG" />
+          <NavigationProperty Name="NHANVIEN" Relationship="Self.fk_nvbill" FromRole="BILL" ToRole="NHANVIEN" />
+        </EntityType>
+        <EntityType Name="CTBILL">
+          <Key>
+            <PropertyRef Name="idbill" />
+            <PropertyRef Name="idfood" />
+          </Key>
+          <Property Name="idbill" Type="Int32" Nullable="false" />
+          <Property Name="idfood" Type="Int32" Nullable="false" />
+          <Property Name="slOrder" Type="Int32" />
+          <NavigationProperty Name="BILL" Relationship="Self.fk_ctbill" FromRole="CTBILL" ToRole="BILL" />
+          <NavigationProperty Name="FOOD" Relationship="Self.fk_ctfood" FromRole="CTBILL" ToRole="FOOD" />
+        </EntityType>
+        <EntityType Name="CTPHIEUNHAP">
+          <Key>
+            <PropertyRef Name="idpn" />
+            <PropertyRef Name="idnl" />
+          </Key>
+          <Property Name="idpn" Type="Int32" Nullable="false" />
+          <Property Name="idnl" Type="Int32" Nullable="false" />
+          <Property Name="slnhap" Type="Int32" />
+          <NavigationProperty Name="NGUYENLIEU" Relationship="Self.fk_nl" FromRole="CTPHIEUNHAP" ToRole="NGUYENLIEU" />
+          <NavigationProperty Name="PHIEUNHAP" Relationship="Self.fk_pn" FromRole="CTPHIEUNHAP" ToRole="PHIEUNHAP" />
+        </EntityType>
+        <EntityType Name="FOOD">
+          <Key>
+            <PropertyRef Name="idfood" />
+          </Key>
+          <Property Name="idfood" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idloaifood" Type="Int32" Nullable="false" />
+          <Property Name="tenfood" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="size" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="gia" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DVT" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="idkm" Type="Int32" />
+          <NavigationProperty Name="CTBILLs" Relationship="Self.fk_ctfood" FromRole="FOOD" ToRole="CTBILL" />
+          <NavigationProperty Name="KHUYENMAI" Relationship="Self.fk_food_km" FromRole="FOOD" ToRole="KHUYENMAI" />
+          <NavigationProperty Name="LOAIFOOD" Relationship="Self.fk_lf" FromRole="FOOD" ToRole="LOAIFOOD" />
+        </EntityType>
+        <EntityType Name="KHACHHANG">
+          <Key>
+            <PropertyRef Name="idkh" />
+          </Key>
+          <Property Name="idkh" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tenkh" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="sdtkh" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="diem" Type="Int32" />
+          <Property Name="phai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BILLs" Relationship="Self.fk_khbill" FromRole="KHACHHANG" ToRole="BILL" />
+        </EntityType>
+        <EntityType Name="KHUYENMAI">
+          <Key>
+            <PropertyRef Name="idkm" />
+          </Key>
+          <Property Name="idkm" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tenkm" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ghichu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ngayBD" Type="DateTime" Precision="3" />
+          <Property Name="ngayKT" Type="DateTime" Precision="3" />
+          <Property Name="chietKhau" Type="Double" />
+          <NavigationProperty Name="FOODs" Relationship="Self.fk_food_km" FromRole="KHUYENMAI" ToRole="FOOD" />
+        </EntityType>
+        <EntityType Name="LOAIFOOD">
+          <Key>
+            <PropertyRef Name="idloaifood" />
+          </Key>
+          <Property Name="idloaifood" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tenloaifood" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="FOODs" Relationship="Self.fk_lf" FromRole="LOAIFOOD" ToRole="FOOD" />
+        </EntityType>
+        <EntityType Name="LOAINL">
+          <Key>
+            <PropertyRef Name="idloainl" />
+          </Key>
+          <Property Name="idloainl" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tenloainl" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="NGUYENLIEUx" Relationship="Self.fk_lnl" FromRole="LOAINL" ToRole="NGUYENLIEU" />
+        </EntityType>
+        <EntityType Name="NGUYENLIEU">
+          <Key>
+            <PropertyRef Name="idnl" />
+          </Key>
+          <Property Name="idnl" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idloainl" Type="Int32" Nullable="false" />
+          <Property Name="idnhacc" Type="Int32" Nullable="false" />
+          <Property Name="ten" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DVT" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="gia" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="slton" Type="Int32" />
+          <NavigationProperty Name="CTPHIEUNHAPs" Relationship="Self.fk_nl" FromRole="NGUYENLIEU" ToRole="CTPHIEUNHAP" />
+          <NavigationProperty Name="LOAINL" Relationship="Self.fk_lnl" FromRole="NGUYENLIEU" ToRole="LOAINL" />
+          <NavigationProperty Name="NHACUNGCAP" Relationship="Self.fk_ncc" FromRole="NGUYENLIEU" ToRole="NHACUNGCAP" />
+        </EntityType>
+        <EntityType Name="NHACUNGCAP">
+          <Key>
+            <PropertyRef Name="idnhacc" />
+          </Key>
+          <Property Name="idnhacc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tennhacung" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="sdtncc" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="mailncc" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="dcncc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="NGUYENLIEUx" Relationship="Self.fk_ncc" FromRole="NHACUNGCAP" ToRole="NGUYENLIEU" />
+        </EntityType>
+        <EntityType Name="NHANVIEN">
+          <Key>
+            <PropertyRef Name="idnv" />
+          </Key>
+          <Property Name="idnv" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tennv" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="sdtnv" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="mail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="dcnv" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="gioitinh" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ngaysinh" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="Int32" />
+          <NavigationProperty Name="accounts" Relationship="Self.fk_acc" FromRole="NHANVIEN" ToRole="account" />
+          <NavigationProperty Name="BILLs" Relationship="Self.fk_nvbill" FromRole="NHANVIEN" ToRole="BILL" />
+          <NavigationProperty Name="PHIEUNHAPs" Relationship="Self.fk_nv" FromRole="NHANVIEN" ToRole="PHIEUNHAP" />
+        </EntityType>
+        <EntityType Name="PHIEUNHAP">
+          <Key>
+            <PropertyRef Name="idpn" />
+          </Key>
+          <Property Name="idpn" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idnv" Type="Int32" Nullable="false" />
+          <Property Name="ngaynhap" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="CTPHIEUNHAPs" Relationship="Self.fk_pn" FromRole="PHIEUNHAP" ToRole="CTPHIEUNHAP" />
+          <NavigationProperty Name="NHANVIEN" Relationship="Self.fk_nv" FromRole="PHIEUNHAP" ToRole="NHANVIEN" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="fk_acc">
+          <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="0..1" />
+          <End Role="account" Type="Self.account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHANVIEN">
+              <PropertyRef Name="idnv" />
+            </Principal>
+            <Dependent Role="account">
+              <PropertyRef Name="idnv" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_banbill">
+          <End Role="BANAN" Type="Self.BANAN" Multiplicity="0..1" />
+          <End Role="BILL" Type="Self.BILL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BANAN">
+              <PropertyRef Name="soban" />
+            </Principal>
+            <Dependent Role="BILL">
+              <PropertyRef Name="soban" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ctbill">
+          <End Role="BILL" Type="Self.BILL" Multiplicity="1" />
+          <End Role="CTBILL" Type="Self.CTBILL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BILL">
+              <PropertyRef Name="idbill" />
+            </Principal>
+            <Dependent Role="CTBILL">
+              <PropertyRef Name="idbill" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_khbill">
+          <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="1" />
+          <End Role="BILL" Type="Self.BILL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHACHHANG">
+              <PropertyRef Name="idkh" />
+            </Principal>
+            <Dependent Role="BILL">
+              <PropertyRef Name="idkh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_nvbill">
+          <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
+          <End Role="BILL" Type="Self.BILL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHANVIEN">
+              <PropertyRef Name="idnv" />
+            </Principal>
+            <Dependent Role="BILL">
+              <PropertyRef Name="idnv" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ctfood">
+          <End Role="FOOD" Type="Self.FOOD" Multiplicity="1" />
+          <End Role="CTBILL" Type="Self.CTBILL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FOOD">
+              <PropertyRef Name="idfood" />
+            </Principal>
+            <Dependent Role="CTBILL">
+              <PropertyRef Name="idfood" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_nl">
+          <End Role="NGUYENLIEU" Type="Self.NGUYENLIEU" Multiplicity="1" />
+          <End Role="CTPHIEUNHAP" Type="Self.CTPHIEUNHAP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NGUYENLIEU">
+              <PropertyRef Name="idnl" />
+            </Principal>
+            <Dependent Role="CTPHIEUNHAP">
+              <PropertyRef Name="idnl" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_pn">
+          <End Role="PHIEUNHAP" Type="Self.PHIEUNHAP" Multiplicity="1" />
+          <End Role="CTPHIEUNHAP" Type="Self.CTPHIEUNHAP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PHIEUNHAP">
+              <PropertyRef Name="idpn" />
+            </Principal>
+            <Dependent Role="CTPHIEUNHAP">
+              <PropertyRef Name="idpn" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_food_km">
+          <End Role="KHUYENMAI" Type="Self.KHUYENMAI" Multiplicity="0..1" />
+          <End Role="FOOD" Type="Self.FOOD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHUYENMAI">
+              <PropertyRef Name="idkm" />
+            </Principal>
+            <Dependent Role="FOOD">
+              <PropertyRef Name="idkm" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_lf">
+          <End Role="LOAIFOOD" Type="Self.LOAIFOOD" Multiplicity="1" />
+          <End Role="FOOD" Type="Self.FOOD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOAIFOOD">
+              <PropertyRef Name="idloaifood" />
+            </Principal>
+            <Dependent Role="FOOD">
+              <PropertyRef Name="idloaifood" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_lnl">
+          <End Role="LOAINL" Type="Self.LOAINL" Multiplicity="1" />
+          <End Role="NGUYENLIEU" Type="Self.NGUYENLIEU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOAINL">
+              <PropertyRef Name="idloainl" />
+            </Principal>
+            <Dependent Role="NGUYENLIEU">
+              <PropertyRef Name="idloainl" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ncc">
+          <End Role="NHACUNGCAP" Type="Self.NHACUNGCAP" Multiplicity="1" />
+          <End Role="NGUYENLIEU" Type="Self.NGUYENLIEU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHACUNGCAP">
+              <PropertyRef Name="idnhacc" />
+            </Principal>
+            <Dependent Role="NGUYENLIEU">
+              <PropertyRef Name="idnhacc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_nv">
+          <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
+          <End Role="PHIEUNHAP" Type="Self.PHIEUNHAP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHANVIEN">
+              <PropertyRef Name="idnv" />
+            </Principal>
+            <Dependent Role="PHIEUNHAP">
+              <PropertyRef Name="idnv" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="QLQUAN_ANEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="accounts" EntityType="Self.account" />
+          <EntitySet Name="BANANs" EntityType="Self.BANAN" />
+          <EntitySet Name="BILLs" EntityType="Self.BILL" />
+          <EntitySet Name="CTBILLs" EntityType="Self.CTBILL" />
+          <EntitySet Name="CTPHIEUNHAPs" EntityType="Self.CTPHIEUNHAP" />
+          <EntitySet Name="FOODs" EntityType="Self.FOOD" />
+          <EntitySet Name="KHACHHANGs" EntityType="Self.KHACHHANG" />
+          <EntitySet Name="KHUYENMAIs" EntityType="Self.KHUYENMAI" />
+          <EntitySet Name="LOAIFOODs" EntityType="Self.LOAIFOOD" />
+          <EntitySet Name="LOAINLs" EntityType="Self.LOAINL" />
+          <EntitySet Name="NGUYENLIEUx" EntityType="Self.NGUYENLIEU" />
+          <EntitySet Name="NHACUNGCAPs" EntityType="Self.NHACUNGCAP" />
+          <EntitySet Name="NHANVIENs" EntityType="Self.NHANVIEN" />
+          <EntitySet Name="PHIEUNHAPs" EntityType="Self.PHIEUNHAP" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <AssociationSet Name="fk_acc" Association="Self.fk_acc">
+            <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+            <End Role="account" EntitySet="accounts" />
+          </AssociationSet>
+          <AssociationSet Name="fk_banbill" Association="Self.fk_banbill">
+            <End Role="BANAN" EntitySet="BANANs" />
+            <End Role="BILL" EntitySet="BILLs" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ctbill" Association="Self.fk_ctbill">
+            <End Role="BILL" EntitySet="BILLs" />
+            <End Role="CTBILL" EntitySet="CTBILLs" />
+          </AssociationSet>
+          <AssociationSet Name="fk_khbill" Association="Self.fk_khbill">
+            <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
+            <End Role="BILL" EntitySet="BILLs" />
+          </AssociationSet>
+          <AssociationSet Name="fk_nvbill" Association="Self.fk_nvbill">
+            <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+            <End Role="BILL" EntitySet="BILLs" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ctfood" Association="Self.fk_ctfood">
+            <End Role="FOOD" EntitySet="FOODs" />
+            <End Role="CTBILL" EntitySet="CTBILLs" />
+          </AssociationSet>
+          <AssociationSet Name="fk_nl" Association="Self.fk_nl">
+            <End Role="NGUYENLIEU" EntitySet="NGUYENLIEUx" />
+            <End Role="CTPHIEUNHAP" EntitySet="CTPHIEUNHAPs" />
+          </AssociationSet>
+          <AssociationSet Name="fk_pn" Association="Self.fk_pn">
+            <End Role="PHIEUNHAP" EntitySet="PHIEUNHAPs" />
+            <End Role="CTPHIEUNHAP" EntitySet="CTPHIEUNHAPs" />
+          </AssociationSet>
+          <AssociationSet Name="fk_food_km" Association="Self.fk_food_km">
+            <End Role="KHUYENMAI" EntitySet="KHUYENMAIs" />
+            <End Role="FOOD" EntitySet="FOODs" />
+          </AssociationSet>
+          <AssociationSet Name="fk_lf" Association="Self.fk_lf">
+            <End Role="LOAIFOOD" EntitySet="LOAIFOODs" />
+            <End Role="FOOD" EntitySet="FOODs" />
+          </AssociationSet>
+          <AssociationSet Name="fk_lnl" Association="Self.fk_lnl">
+            <End Role="LOAINL" EntitySet="LOAINLs" />
+            <End Role="NGUYENLIEU" EntitySet="NGUYENLIEUx" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ncc" Association="Self.fk_ncc">
+            <End Role="NHACUNGCAP" EntitySet="NHACUNGCAPs" />
+            <End Role="NGUYENLIEU" EntitySet="NGUYENLIEUx" />
+          </AssociationSet>
+          <AssociationSet Name="fk_nv" Association="Self.fk_nv">
+            <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+            <End Role="PHIEUNHAP" EntitySet="PHIEUNHAPs" />
+          </AssociationSet>
+          <FunctionImport Name="getNVCreateAcc" ReturnType="Collection(QLQUAN_ANModel.getNVCreateAcc_Result)" />
+          <FunctionImport Name="loaddvt" ReturnType="Collection(QLQUAN_ANModel.loaddvt_Result)" />
+          <FunctionImport Name="loadDvtfood" ReturnType="Collection(QLQUAN_ANModel.loadDvtfood_Result)" />
+          <FunctionImport Name="loadSizi" ReturnType="Collection(QLQUAN_ANModel.loadSizi_Result)" />
+          <FunctionImport Name="prDoanhThu" ReturnType="Collection(QLQUAN_ANModel.prDoanhThu_Result)">
+          <Parameter Name="thang" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="prDoanhThuThang" ReturnType="Collection(QLQUAN_ANModel.prDoanhThuThang_Result)">
+          <Parameter Name="thang" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="RPTinhTien" ReturnType="Collection(QLQUAN_ANModel.RPTinhTien_Result)">
+            <Parameter Name="idbill" Mode="In" Type="Int32" />
+            <Parameter Name="tien" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="RP_sanPham_banChay" ReturnType="Collection(QLQUAN_ANModel.RP_sanPham_banChay_Result)" />
+          <FunctionImport Name="RP_doanhThuNgay" ReturnType="Collection(QLQUAN_ANModel.RP_doanhThuNgay_Result)" />
+          <FunctionImport Name="RP_soLuong_loai" ReturnType="Collection(QLQUAN_ANModel.RP_soLuong_loai_Result)" />
+          <FunctionImport Name="RP_soLuong_sanPham" ReturnType="Collection(QLQUAN_ANModel.RP_soLuong_sanPham_Result)" />
+        </EntityContainer>
+        <ComplexType Name="getNVCreateAcc_Result">
+          <Property Type="Int32" Name="idnv" Nullable="false" />
+          <Property Type="String" Name="tennv" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="sdtnv" Nullable="true" MaxLength="11" />
+          <Property Type="String" Name="mail" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="dcnv" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="gioitinh" Nullable="true" MaxLength="20" />
+          <Property Type="DateTime" Name="ngaysinh" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="Status" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="prDoanhThu_Result">
+          <Property Type="Int32" Name="ngay" Nullable="true" />
+          <Property Type="Decimal" Name="doanhthu" Nullable="true" Precision="38" Scale="0" />
+        </ComplexType>
+        <ComplexType Name="RPTinhTien_Result">
+          <Property Type="Int32" Name="idbill" Nullable="false" />
+          <Property Type="Int32" Name="idfood" Nullable="false" />
+          <Property Type="String" Name="tennv" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="soban" Nullable="true" />
+          <Property Type="DateTime" Name="checkin" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="checkout" Nullable="true" Precision="23" />
+          <Property Type="String" Name="tenfood" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="size" Nullable="true" MaxLength="5" />
+          <Property Type="Int32" Name="slOrder" Nullable="true" />
+          <Property Type="Double" Name="chietKhau" Nullable="true" />
+          <Property Type="Decimal" Name="gia" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="tienKhachTra" Nullable="true" />
+          <Property Type="Double" Name="total" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="loaddvt_Result">
+          <Property Type="String" Name="DVT" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="loadDvtfood_Result">
+          <Property Type="String" Name="DVT" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="loadSizi_Result">
+          <Property Type="String" Name="size" Nullable="true" MaxLength="5" />
+        </ComplexType>
+        <ComplexType Name="prDoanhThuThang_Result">
+          <Property Type="Decimal" Name="doanhthu" Nullable="true" Precision="38" Scale="0" />
+        </ComplexType>
+        <ComplexType Name="RP_sanPham_banChay_Result">
+          <Property Type="Int32" Name="daBan" Nullable="true" />
+          <Property Type="String" Name="tenfood" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="RP_soLuong_loai_Result">
+          <Property Type="Int32" Name="soLuong" Nullable="true" />
+          <Property Type="String" Name="tenloaifood" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="RP_soLuong_sanPham_Result">
+          <Property Type="Int32" Name="soLuong" Nullable="true" />
+          <Property Type="String" Name="tenfood" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="RP_doanhThuNgay_Result">
+          <Property Type="Double" Name="doanhThu" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="QLQUAN_ANModelStoreContainer" CdmEntityContainer="QLQUAN_ANEntities">
+          <EntitySetMapping Name="accounts">
+            <EntityTypeMapping TypeName="QLQUAN_ANModel.account">
+              <MappingFragment StoreEntitySet="account">
+                <ScalarProperty Name="userNanme" ColumnName="userNanme" />
+                <ScalarProperty Name="idnv" ColumnName="idnv" />
+                <ScalarProperty Name="isAdmin" ColumnName="isAdmin" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BANANs">
+            <EntityTypeMapping TypeName="QLQUAN_ANModel.BANAN">
+              <MappingFragment StoreEntitySet="BANAN">
+                <ScalarProperty Name="soban" ColumnName="soban" />
+                <ScalarProperty Name="tenban" ColumnName="tenban" />
+                <ScalarProperty Name="tinhtrang" ColumnName="tinhtrang" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BILLs">
+            <EntityTypeMapping TypeName="QLQUAN_ANModel.BILL">
+              <MappingFragment StoreEntitySet="BILL">
+                <ScalarProperty Name="idbill" ColumnName="idbill" />
+                <ScalarProperty Name="idnv" ColumnName="idnv" />
+                <ScalarProperty Name="idkh" ColumnName="idkh" />
+                <ScalarProperty Name="soban" ColumnName="soban" />
+                <ScalarProperty Name="checkin" ColumnName="checkin" />
+                <ScalarProperty Name="checkout" ColumnName="checkout" />
+                <ScalarProperty Name="tinhtrang" ColumnName="tinhtrang" />
+                <ScalarProperty Name="chietkhau" ColumnName="chietkhau" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CTBILLs">
+            <EntityTypeMapping TypeName="QLQUAN_ANModel.CTBILL">
+              <MappingFragment StoreEntitySet="CTBILL">
+                <ScalarProperty Name="idbill" ColumnName="idbill" />
+                <ScalarProperty Name="idfood" ColumnName="idfood" />
+                <ScalarProperty Name="slOrder" ColumnName="slOrder" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CTPHIEUNHAPs">
+            <EntityTypeMapping TypeName="QLQUAN_ANModel.CTPHIEUNHAP">
+              <MappingFragment StoreEntitySet="CTPHIEUNHAP">
+                <ScalarProperty Name="idpn" ColumnName="idpn" />
+                <ScalarProperty Name="idnl" ColumnName="idnl" />
+                <ScalarProperty Name="slnhap" ColumnName="slnhap" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FOODs">
+            <EntityTypeMapping TypeName="QLQUAN_ANModel.FOOD">
+              <MappingFragment StoreEntitySet="FOOD">
+                <ScalarProperty Name="idfood" ColumnName="idfood" />
+                <ScalarProperty Name="idloaifood" ColumnName="idloaifood" />
+                <ScalarProperty Name="tenfood" ColumnName="tenfood" />
+                <ScalarProperty Name="size" ColumnName="size" />
+                <ScalarProperty Name="gia" ColumnName="gia" />
+                <ScalarProperty Name="DVT" ColumnName="DVT" />
+                <ScalarProperty Name="idkm" ColumnName="idkm" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KHACHHANGs">
+            <EntityTypeMapping TypeName="QLQUAN_ANModel.KHACHHANG">
+              <MappingFragment StoreEntitySet="KHACHHANG">
+                <ScalarProperty Name="idkh" ColumnName="idkh" />
+                <ScalarProperty Name="tenkh" ColumnName="tenkh" />
+                <ScalarProperty Name="sdtkh" ColumnName="sdtkh" />
+                <ScalarProperty Name="diem" ColumnName="diem" />
+                <ScalarProperty Name="phai" ColumnName="phai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KHUYENMAIs">
+            <EntityTypeMapping TypeName="QLQUAN_ANModel.KHUYENMAI">
+              <MappingFragment StoreEntitySet="KHUYENMAI">
+                <ScalarProperty Name="idkm" ColumnName="idkm" />
+                <ScalarProperty Name="tenkm" ColumnName="tenkm" />
+                <ScalarProperty Name="ghichu" ColumnName="ghichu" />
+                <ScalarProperty Name="ngayBD" ColumnName="ngayBD" />
+                <ScalarProperty Name="ngayKT" ColumnName="ngayKT" />
+                <ScalarProperty Name="chietKhau" ColumnName="chietKhau" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOAIFOODs">
+            <EntityTypeMapping TypeName="QLQUAN_ANModel.LOAIFOOD">
+              <MappingFragment StoreEntitySet="LOAIFOOD">
+                <ScalarProperty Name="idloaifood" ColumnName="idloaifood" />
+                <ScalarProperty Name="tenloaifood" ColumnName="tenloaifood" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOAINLs">
+            <EntityTypeMapping TypeName="QLQUAN_ANModel.LOAINL">
+              <MappingFragment StoreEntitySet="LOAINL">
+                <ScalarProperty Name="idloainl" ColumnName="idloainl" />
+                <ScalarProperty Name="tenloainl" ColumnName="tenloainl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NGUYENLIEUx">
+            <EntityTypeMapping TypeName="QLQUAN_ANModel.NGUYENLIEU">
+              <MappingFragment StoreEntitySet="NGUYENLIEU">
+                <ScalarProperty Name="idnl" ColumnName="idnl" />
+                <ScalarProperty Name="idloainl" ColumnName="idloainl" />
+                <ScalarProperty Name="idnhacc" ColumnName="idnhacc" />
+                <ScalarProperty Name="ten" ColumnName="ten" />
+                <ScalarProperty Name="DVT" ColumnName="DVT" />
+                <ScalarProperty Name="gia" ColumnName="gia" />
+                <ScalarProperty Name="slton" ColumnName="slton" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NHACUNGCAPs">
+            <EntityTypeMapping TypeName="QLQUAN_ANModel.NHACUNGCAP">
+              <MappingFragment StoreEntitySet="NHACUNGCAP">
+                <ScalarProperty Name="idnhacc" ColumnName="idnhacc" />
+                <ScalarProperty Name="tennhacung" ColumnName="tennhacung" />
+                <ScalarProperty Name="sdtncc" ColumnName="sdtncc" />
+                <ScalarProperty Name="mailncc" ColumnName="mailncc" />
+                <ScalarProperty Name="dcncc" ColumnName="dcncc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NHANVIENs">
+            <EntityTypeMapping TypeName="QLQUAN_ANModel.NHANVIEN">
+              <MappingFragment StoreEntitySet="NHANVIEN">
+                <ScalarProperty Name="idnv" ColumnName="idnv" />
+                <ScalarProperty Name="tennv" ColumnName="tennv" />
+                <ScalarProperty Name="sdtnv" ColumnName="sdtnv" />
+                <ScalarProperty Name="mail" ColumnName="mail" />
+                <ScalarProperty Name="dcnv" ColumnName="dcnv" />
+                <ScalarProperty Name="gioitinh" ColumnName="gioitinh" />
+                <ScalarProperty Name="ngaysinh" ColumnName="ngaysinh" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PHIEUNHAPs">
+            <EntityTypeMapping TypeName="QLQUAN_ANModel.PHIEUNHAP">
+              <MappingFragment StoreEntitySet="PHIEUNHAP">
+                <ScalarProperty Name="idpn" ColumnName="idpn" />
+                <ScalarProperty Name="idnv" ColumnName="idnv" />
+                <ScalarProperty Name="ngaynhap" ColumnName="ngaynhap" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="QLQUAN_ANModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="getNVCreateAcc" FunctionName="QLQUAN_ANModel.Store.getNVCreateAcc">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QLQUAN_ANModel.getNVCreateAcc_Result">
+                <ScalarProperty Name="idnv" ColumnName="idnv" />
+                <ScalarProperty Name="tennv" ColumnName="tennv" />
+                <ScalarProperty Name="sdtnv" ColumnName="sdtnv" />
+                <ScalarProperty Name="mail" ColumnName="mail" />
+                <ScalarProperty Name="dcnv" ColumnName="dcnv" />
+                <ScalarProperty Name="gioitinh" ColumnName="gioitinh" />
+                <ScalarProperty Name="ngaysinh" ColumnName="ngaysinh" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="loaddvt" FunctionName="QLQUAN_ANModel.Store.loaddvt" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QLQUAN_ANModel.loaddvt_Result">
+                <ScalarProperty Name="DVT" ColumnName="DVT" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="loadDvtfood" FunctionName="QLQUAN_ANModel.Store.loadDvtfood" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QLQUAN_ANModel.loadDvtfood_Result">
+                <ScalarProperty Name="DVT" ColumnName="DVT" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="loadSizi" FunctionName="QLQUAN_ANModel.Store.loadSizi" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QLQUAN_ANModel.loadSizi_Result">
+                <ScalarProperty Name="size" ColumnName="size" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="prDoanhThu" FunctionName="QLQUAN_ANModel.Store.prDoanhThu">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QLQUAN_ANModel.prDoanhThu_Result">
+                <ScalarProperty Name="ngay" ColumnName="ngay" />
+                <ScalarProperty Name="doanhthu" ColumnName="doanhthu" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="prDoanhThuThang" FunctionName="QLQUAN_ANModel.Store.prDoanhThuThang" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QLQUAN_ANModel.prDoanhThuThang_Result">
+                <ScalarProperty Name="doanhthu" ColumnName="doanhthu" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="RPTinhTien" FunctionName="QLQUAN_ANModel.Store.RPTinhTien">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QLQUAN_ANModel.RPTinhTien_Result">
+                <ScalarProperty Name="idbill" ColumnName="idbill" />
+                <ScalarProperty Name="idfood" ColumnName="idfood" />
+                <ScalarProperty Name="tennv" ColumnName="tennv" />
+                <ScalarProperty Name="soban" ColumnName="soban" />
+                <ScalarProperty Name="checkin" ColumnName="checkin" />
+                <ScalarProperty Name="checkout" ColumnName="checkout" />
+                <ScalarProperty Name="tenfood" ColumnName="tenfood" />
+                <ScalarProperty Name="size" ColumnName="size" />
+                <ScalarProperty Name="slOrder" ColumnName="slOrder" />
+                <ScalarProperty Name="chietKhau" ColumnName="chietKhau" />
+                <ScalarProperty Name="gia" ColumnName="gia" />
+                <ScalarProperty Name="tienKhachTra" ColumnName="tienKhachTra" />
+                <ScalarProperty Name="total" ColumnName="total" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="RP_sanPham_banChay" FunctionName="QLQUAN_ANModel.Store.RP_sanPham_banChay">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QLQUAN_ANModel.RP_sanPham_banChay_Result">
+                <ScalarProperty Name="daBan" ColumnName="daBan" />
+                <ScalarProperty Name="tenfood" ColumnName="tenfood" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="RP_doanhThuNgay" FunctionName="QLQUAN_ANModel.Store.RP_doanhThuNgay" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QLQUAN_ANModel.RP_doanhThuNgay_Result">
+                <ScalarProperty Name="doanhThu" ColumnName="doanhThu" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="RP_soLuong_loai" FunctionName="QLQUAN_ANModel.Store.RP_soLuong_loai">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QLQUAN_ANModel.RP_soLuong_loai_Result">
+                <ScalarProperty Name="soLuong" ColumnName="soLuong" />
+                <ScalarProperty Name="tenloaifood" ColumnName="tenloaifood" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="RP_soLuong_sanPham" FunctionName="QLQUAN_ANModel.Store.RP_soLuong_sanPham">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QLQUAN_ANModel.RP_soLuong_sanPham_Result">
+                <ScalarProperty Name="soLuong" ColumnName="soLuong" />
+                <ScalarProperty Name="tenfood" ColumnName="tenfood" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

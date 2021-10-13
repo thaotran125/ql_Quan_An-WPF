@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="WpfQuanAn.view.QLBanUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfQuanAn.view"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+               DataContext="{StaticResource BanAnVM}"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="15"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     Background="{DynamicResource MaterialDesignPaper}"
+     FontFamily="{DynamicResource MaterialDesignFont}">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Margin="30 5 0 5">
+            <Label Content="{Binding TongSoBan,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Margin="10"></Label>
+            <TextBox Text="{Binding tongSoBanThem , UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" HorizontalContentAlignment="Center"  Margin="75,5,235,5"  materialDesign:HintAssist.Hint="Tổng số bàn thêm/xóa" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+        </StackPanel>
+
+        <WrapPanel Grid.Row="1" Margin="30 5 5 0">
+            <Button Command="{Binding AddCommand}" Content="Thêm" Margin="5" Width="100" Background="#0074cf" FontWeight="Bold" />
+            <Button Command="{Binding DeleteCommand}" Content="Xóa" Margin="5" Width="100" Background="#0074cf" FontWeight="Bold" Foreground="Red"></Button>
+            <Button Command="{Binding Restart}" Content="Refesh" Margin="5" Width="100" Background="#0074cf" FontWeight="Bold" ></Button>
+        </WrapPanel>
+    </Grid>
+</UserControl>

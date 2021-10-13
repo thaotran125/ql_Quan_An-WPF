@@ -1,0 +1,132 @@
+﻿<UserControl x:Class="WpfQuanAn.view.ReportUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfQuanAn.view"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="1000"
+             x:Name="ReportUC"
+             
+            DataContext="{StaticResource ReportVM}"
+              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+              xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf" 
+     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="15"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     Background="{DynamicResource MaterialDesignPaper}"
+     FontFamily="{DynamicResource MaterialDesignFont}">
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedCommand}" 
+                                   CommandParameter="{Binding ElementName=ReportUC}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <WrapPanel Grid.Row="0">
+            <materialDesign:Card Background="#03a9f4"  Margin="10"  Foreground="White"  
+                                                         Padding="0" Width="200">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <WrapPanel Grid.Row="0" >
+                        <materialDesign:PackIcon Kind="CurrencyUsd" Margin="25 20 5 4"/>
+                        <TextBlock Margin="5 16 16 4" Text="Doanh thu"  FontWeight="Bold" Style="{StaticResource MaterialDesignBody1TextBlock}"></TextBlock>
+                    </WrapPanel>
+                    <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+                    <TextBlock Grid.Row="2" Text="{Binding doanhThuNgay}" Margin="50 0 16 8" VerticalAlignment="Center"  HorizontalAlignment="Left"  Style="{StaticResource MaterialDesignBody1TextBlock}"></TextBlock>
+                    <materialDesign:PopupBox HorizontalAlignment="Right" Padding="2 0 2 0">
+                        <StackPanel>
+                            <Button Command="{Binding CommandReportThang}" Click="RPThang_Click" Content="Doanh thu theo tháng"></Button>
+                            <Button Command="{Binding CommandReportNgay}" Click="RPNgay_Click" Content="Doanh thu ngày tháng"></Button>
+                        </StackPanel>
+                    </materialDesign:PopupBox>
+                </Grid>
+            </materialDesign:Card>
+
+            <materialDesign:Card Background="#03a9f4"  Margin="5"  Foreground="White"  
+                                                         Padding="0" Width="200">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <WrapPanel Grid.Row="0" >
+                        <materialDesign:PackIcon Kind="CoffeeOutline" Margin="25 20 5 4"/>
+                        <TextBlock Margin="5 16 16 4" Text="Sản phẩm nổi bật"  FontWeight="Bold"  Style="{StaticResource MaterialDesignBody1TextBlock}"></TextBlock>
+                    </WrapPanel>
+                    <TextBlock Grid.Row="1" Text="{Binding spBanChay}" Margin="50 0 16 8" VerticalAlignment="Center"  HorizontalAlignment="Left"  Style="{StaticResource MaterialDesignBody1TextBlock}"></TextBlock>
+                    <TextBlock Grid.Row="2" Text="{Binding slBan}" FontSize="15" Margin="50 0 16 8" VerticalAlignment="Center"  HorizontalAlignment="Left"  Style="{StaticResource MaterialDesignBody1TextBlock}"></TextBlock>
+
+
+                </Grid>
+            </materialDesign:Card>
+
+            <Button Click="RPLoai_Click" Padding="0" Height="auto" Background="{x:Null}" BorderBrush="{x:Null}" >
+                <materialDesign:Card Background="#03a9f4"  Margin="5 0 0 0" Width="200" Foreground="White"  
+                                                         Padding="0" >
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <WrapPanel Grid.Row="0" >
+                            <materialDesign:PackIcon Kind="ShapeOutline" Margin="25 20 5 4"/>
+                            <TextBlock Margin="5 16 16 4" Text="Tổng loại SP"  FontWeight="Bold"  Style="{StaticResource MaterialDesignBody1TextBlock}"></TextBlock>
+                        </WrapPanel>
+                        <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+                        <TextBlock Grid.Row="2" Text="{Binding TongLoai}" Margin="50 0 16 8" VerticalAlignment="Center"  HorizontalAlignment="Left"  Style="{StaticResource MaterialDesignBody1TextBlock}"></TextBlock>
+
+                    </Grid>
+                </materialDesign:Card>
+            </Button>
+
+            <Button Click="RPSanPham_Click" Padding="0" Height="auto" Background="{x:Null}" BorderBrush="{x:Null}">
+                <materialDesign:Card Background="#03a9f4"  Margin="5 0 0 0" Width="200" Foreground="White"  
+                                                         Padding="0" >
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <WrapPanel Grid.Row="0" >
+                            <materialDesign:PackIcon Kind="Cupcake" Margin="25 20 5 4"/>
+                            <TextBlock Margin="5 16 16 4" Text="Tổng sản phẩm"  FontWeight="Bold"  Style="{StaticResource MaterialDesignBody1TextBlock}"></TextBlock>
+                        </WrapPanel>
+                        <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+                        <TextBlock Grid.Row="2" Text="{Binding tongSP}" Margin="50 0 16 8" VerticalAlignment="Center"  HorizontalAlignment="Left"  Style="{StaticResource MaterialDesignBody1TextBlock}"></TextBlock>
+
+                    </Grid>
+                </materialDesign:Card>
+            </Button>
+        </WrapPanel>
+
+        <Grid Grid.Row="1" x:Name="GridReport" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+                <lvc:CartesianChart  Series="{Binding senderChart}" Margin="3,48,48,24.333" Grid.Column="1">
+                    <lvc:CartesianChart.AxisX>
+                        <lvc:Axis Labels="{Binding AxisListName}">
+                            <lvc:Axis.Separator>
+                                <lvc:Separator Step="1" Stroke="{x:Null}"/>
+                            </lvc:Axis.Separator>
+                        </lvc:Axis>
+                    </lvc:CartesianChart.AxisX>
+                </lvc:CartesianChart>
+        </Grid>
+
+    </Grid>
+</UserControl>

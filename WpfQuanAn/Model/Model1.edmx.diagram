@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f09942dc6dcd4ccd861d96b80a0c6fb1" Name="Diagram1">
+        <EntityTypeShape EntityType="QLQUAN_ANModel.account" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLQUAN_ANModel.BANAN" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLQUAN_ANModel.BILL" Width="1.5" PointX="6" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLQUAN_ANModel.CTBILL" Width="1.5" PointX="8.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLQUAN_ANModel.CTPHIEUNHAP" Width="1.5" PointX="5.25" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLQUAN_ANModel.FOOD" Width="1.5" PointX="6" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLQUAN_ANModel.KHACHHANG" Width="1.5" PointX="3.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLQUAN_ANModel.KHUYENMAI" Width="1.5" PointX="3.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLQUAN_ANModel.LOAIFOOD" Width="1.5" PointX="3.75" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLQUAN_ANModel.LOAINL" Width="1.5" PointX="0.75" PointY="19.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLQUAN_ANModel.NGUYENLIEU" Width="1.5" PointX="3" PointY="20.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLQUAN_ANModel.NHACUNGCAP" Width="1.5" PointX="0.75" PointY="21.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLQUAN_ANModel.NHANVIEN" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLQUAN_ANModel.PHIEUNHAP" Width="1.5" PointX="3" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLQUAN_ANModel.sysdiagram" Width="1.5" PointX="5.75" PointY="1.25" IsExpanded="true" />
+        <AssociationConnector Association="QLQUAN_ANModel.fk_acc" ManuallyRouted="false" />
+        <AssociationConnector Association="QLQUAN_ANModel.fk_banbill" ManuallyRouted="false" />
+        <AssociationConnector Association="QLQUAN_ANModel.fk_ctbill" ManuallyRouted="false" />
+        <AssociationConnector Association="QLQUAN_ANModel.fk_khbill" ManuallyRouted="false" />
+        <AssociationConnector Association="QLQUAN_ANModel.fk_nvbill" ManuallyRouted="false" />
+        <AssociationConnector Association="QLQUAN_ANModel.fk_ctfood" ManuallyRouted="false" />
+        <AssociationConnector Association="QLQUAN_ANModel.fk_nl" ManuallyRouted="false" />
+        <AssociationConnector Association="QLQUAN_ANModel.fk_pn" ManuallyRouted="false" />
+        <AssociationConnector Association="QLQUAN_ANModel.fk_food_km" ManuallyRouted="false" />
+        <AssociationConnector Association="QLQUAN_ANModel.fk_lf" ManuallyRouted="false" />
+        <AssociationConnector Association="QLQUAN_ANModel.fk_lnl" ManuallyRouted="false" />
+        <AssociationConnector Association="QLQUAN_ANModel.fk_ncc" ManuallyRouted="false" />
+        <AssociationConnector Association="QLQUAN_ANModel.fk_nv" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

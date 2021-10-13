@@ -1,0 +1,30 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:viewmodel="clr-namespace:WpfQuanAn.ViewModel"
+                    xmlns:local="clr-namespace:WpfQuanAn.ResourceXAML">
+    
+    <viewmodel:MainViewModel x:Key="mainVM"></viewmodel:MainViewModel>
+    <viewmodel:BanHangViewModel x:Key="banHangVM"></viewmodel:BanHangViewModel>
+    <viewmodel:ConvertMau x:Key="convertMau"></viewmodel:ConvertMau>
+    <viewmodel:ConvvertImage x:Key="ConvertImg"></viewmodel:ConvvertImage>
+    <viewmodel:NhanVienViewModel x:Key="NhanVienVM"></viewmodel:NhanVienViewModel>
+    <viewmodel:KhachHangViewModel x:Key="KhachHangVM"></viewmodel:KhachHangViewModel>
+    <viewmodel:NhaCungCapViewModel x:Key="NhaCungVM"></viewmodel:NhaCungCapViewModel>
+    <viewmodel:NguyenLieuViewModel x:Key="NguyenLieuVM"></viewmodel:NguyenLieuViewModel>
+    <viewmodel:KhuyenMaiViewModel x:Key="KhuyenMaiVM"></viewmodel:KhuyenMaiViewModel>
+    <viewmodel:MonAnViewModel x:Key="MonAnVM"></viewmodel:MonAnViewModel>
+    <viewmodel:PhieuNhapViewModel x:Key="PhieuNhapVM"></viewmodel:PhieuNhapViewModel>
+    <viewmodel:AccountViewModel x:Key="accountVM"></viewmodel:AccountViewModel>
+    <viewmodel:LoginViewModel x:Key="LoginVM"></viewmodel:LoginViewModel>
+    <viewmodel:SignUpViewModel x:Key="SignupVM"></viewmodel:SignUpViewModel>
+
+    <viewmodel:ReportDoanhThuViewModel x:Key="RPDoanhThuThang"></viewmodel:ReportDoanhThuViewModel>
+    <viewmodel:ReportViewModel x:Key="ReportVM"></viewmodel:ReportViewModel>
+    <viewmodel:ReportLoaiViewModel x:Key="RPLoaiVM"></viewmodel:ReportLoaiViewModel>
+    <viewmodel:ReportSoLuong_SanPhamViewModel x:Key="RPslSanPhamVM"></viewmodel:ReportSoLuong_SanPhamViewModel>
+    
+    <viewmodel:ConverterReport x:Key="colorConv"></viewmodel:ConverterReport>
+    <viewmodel:ConverterVM  x:Key="Converter"></viewmodel:ConverterVM>
+    <viewmodel:BanAnViewModel x:Key="BanAnVM"></viewmodel:BanAnViewModel>
+
+</ResourceDictionary>

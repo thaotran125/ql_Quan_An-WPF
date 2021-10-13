@@ -1,0 +1,87 @@
+﻿<Window x:Class="WpfQuanAn.view.ThanhToanWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfQuanAn.view"
+        mc:Ignorable="d"
+         WindowStyle="None"
+        x:Name="WDThanhToan"
+        
+         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        Title="Thanh Toan Bill" Height="330" Width="300"
+        DataContext="{StaticResource banHangVM}"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="15"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     WindowStartupLocation="CenterScreen"
+     Background="{DynamicResource MaterialDesignPaper}"
+     FontFamily="{DynamicResource MaterialDesignFont}">
+
+    <Border CornerRadius="20" Background="#FFADDFED" BorderBrush="Blue" BorderThickness="0">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50px"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <WrapPanel Grid.Row="0" Background="#FF9CB0FE"  >
+                    <TextBlock Text="THANH TOÁN BILL" FontWeight="Bold"  Margin="60,18,0,0" ></TextBlock>
+                </WrapPanel>
+                <WrapPanel  Grid.Row="1">
+                    <Label Margin="5" Content="Tổng Tiền:" Foreground="#FFA70707" FontWeight="Bold" Background="{x:Null}" ></Label>
+                    <Label  Margin="5" Content="{Binding TongTien, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  FontWeight="Bold"  ></Label>
+                </WrapPanel>
+
+                <WrapPanel VerticalAlignment="Center" Grid.Row="2"  >
+                    <Label Margin="5" Content="Tổng Chiết Khấu:" Foreground="#FFA70707" FontWeight="Bold" ></Label>
+                    <Label Margin="5" Content="{Binding tongChietKhau, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  FontWeight="Bold"  ></Label>
+                </WrapPanel>
+
+                <WrapPanel Grid.Row="3">
+                    <Label Margin="5" Content="Thành Tiền:" Foreground="Red" FontWeight="Bold" ></Label>
+                    <Label Margin="5" Content="{Binding thanhTien, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  FontWeight="Bold"  ></Label>
+                </WrapPanel>
+
+                <WrapPanel VerticalAlignment="Center" Grid.Row="4">
+                    <Label Margin="0,5,0,0" Content="Tiền Khách Đưa:" Foreground="#FFA70707" FontWeight="Bold" ></Label>
+                    <TextBox  HorizontalContentAlignment="Center" Width="160" Text="{Binding tienKhachDua, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" materialDesign:HintAssist.Hint="Tiền Khách Đưa" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Background="#FFF2E6E6">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="TextChanged">
+                                <i:InvokeCommandAction Command="{Binding TextChangedCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </TextBox>
+                </WrapPanel>
+
+
+                <WrapPanel VerticalAlignment="Center" Grid.Row="5" >
+                    <Label Margin="5" Content="Tiền Trả Khách:" Foreground="#FFA70707" FontWeight="Bold" Background="{x:Null}" ></Label>
+                    <TextBlock Margin="5" Text="{Binding tienTraLai,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+                </WrapPanel>
+
+
+            </Grid>
+            <Grid Grid.Row="1" Height="auto" Margin="18">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button VerticalAlignment="Top" Command="{Binding ComfirmThanhToanCommand}" CommandParameter="{Binding ElementName=WDThanhToan}" FontFamily="Segoe UI" FontSize="15" FontWeight="Bold" Foreground="White"  Background="#FF5656F6"  Content="In Bill" Effect="{StaticResource MaterialDesignShadowDepth2}" Margin="5" Grid.Column="0"></Button>
+                <Button VerticalAlignment="Top" Command="{Binding ICommandCancel}" CommandParameter="{Binding ElementName=WDThanhToan}" FontFamily="Segoe UI" FontSize="15" FontWeight="Bold" Foreground="White"  Background="#FF7373F6" Content="Cancel" Effect="{StaticResource MaterialDesignShadowDepth2}" Margin="5" Grid.Column="1"></Button>
+
+            </Grid>
+        </Grid>
+    </Border>
+</Window>
